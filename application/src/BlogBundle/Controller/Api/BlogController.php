@@ -17,6 +17,11 @@ class BlogController extends Controller
         return $this->render('BlogBundle:Default:index.html.twig');
     }
 
+    public function getAllSince()
+    {
+        return $this->render('BlogBundle:Default:index.html.twig');
+    }
+
     public function create(Request $request)
     {
         return $this->render('BlogBundle:Default:index.html.twig');
