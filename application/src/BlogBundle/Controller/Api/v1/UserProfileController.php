@@ -1,11 +1,11 @@
 <?php
 
-namespace BlogBundle\Controller\Api;
+namespace BlogBundle\Controller\Api\v1;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-class UserController extends Controller
+class UserProfileController extends Controller
 {
     public function getAction()
     {

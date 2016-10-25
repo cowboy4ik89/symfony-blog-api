@@ -1,11 +1,11 @@
 <?php
 
-namespace BlogBundle\Controller\Api;
+namespace BlogBundle\Controller\Api\v1;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-class CommentRatingController extends Controller
+class BlogController extends Controller
 {
     public function getAction()
     {
