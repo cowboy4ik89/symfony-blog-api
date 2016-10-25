@@ -1,2 +1,5 @@
 .idea
 docker-compose.yml
+application/var/
+application/vendor
+application/app/config/parameters.yml
