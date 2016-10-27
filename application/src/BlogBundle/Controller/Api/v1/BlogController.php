@@ -17,7 +17,7 @@ class BlogController extends Controller
      *
      * @return JsonResponse
      */
-    public function getAction($id): JsonßResponse
+    public function getAction($id): JsonResponse
     {
         return $this->json(['id' => $id]);
     }
