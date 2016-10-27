@@ -1,0 +1,48 @@
+BlogBundle\Entity\User:
+  type: entity
+  table: bb_user
+  repositoryClass: BlogBundle\Entity\EntityRepository\Doctrine\UserRepository
+  id:
+      id:
+          type: guid
+          generator:
+              strategy: AUTO
+  fields:
+      username:
+          type: string
+          length: 100
+          nullable: false
+      password:
+          type: string
+          length: 64
+          nullable: false
+      lastLogin:
+          type: datetime
+          column: last_login
+          nullable: true
+      roles:
+          type: array
+      status:
+          type: string
+          length: 10
+          nullable: false
+      createdAt:
+          type: datetime
+          nullable: false
+          column: created_at
+      updatedAt:
+          type: datetime
+          nullable: false
+          column: updated_at
+  oneToOne:
+      userProfile:
+          targetEntity: BlogBundle\Entity\UserProfile
+          mappedBy: user
+          cascade:
+              - persist
+              - remove
+
+
+#      lifecycleCallbacks:
+#          prePersist: [setCreatedAtValue, setUpdatedAtValue]
+#          preUpdate: [setUpdatedAtValue]

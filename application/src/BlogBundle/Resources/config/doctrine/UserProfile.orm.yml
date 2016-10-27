@@ -1,0 +1,40 @@
+BlogBundle\Entity\UserProfile:
+  type: entity
+  table: bb_user_profile
+  repositoryClass: BlogBundle\Entity\EntityRepository\Doctrine\UserProfileRepository
+  id:
+      id:
+          type: guid
+          generator:
+              strategy: AUTO
+  fields:
+      firstName:
+          type: string
+          length: 30
+          nullable: false
+          column: first_name
+      lastName:
+          type: string
+          length: 30
+          nullable: false
+          column: last_name
+      createdAt:
+          type: datetime
+          nullable: false
+          column: created_at
+      updatedAt:
+          type: datetime
+          nullable: false
+          column: updated_at
+  oneToOne:
+      user:
+#          targetEntity: BlogBundle\Entity\UserProfile
+#          mappedBy: user
+#          cascade:
+#              - persist
+#              - remove
+
+
+#      lifecycleCallbacks:
+#          prePersist: [setCreatedAtValue, setUpdatedAtValue]
+#          preUpdate: [setUpdatedAtValue]

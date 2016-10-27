@@ -1,0 +1,42 @@
+BlogBundle\Entity\Blog:
+  type: entity
+  table: bb_blog
+  repositoryClass: BlogBundle\Entity\EntityRepository\Doctrine\BlogRepository
+  id:
+      id:
+          type: guid
+          generator:
+              strategy: AUTO
+  fields:
+      name:
+          type: string
+          length: 100
+          nullable: false
+      status:
+          type: string
+          length: 10
+          nullable: false
+      createdAt:
+          type: datetime
+          nullable: false
+          column: created_at
+      updatedAt:
+          type: datetime
+          nullable: false
+          column: updated_at
+  manyToOne:
+      user:
+          targetEntity: BlogBundle\Entity\User
+          joinColumn:
+              name: user_id
+              referencedColumnName: id
+  oneToMany:
+      posts:
+          targetEntity: BlogBundle\Entity\Post
+          mappedBy: blog
+          orderBy: { 'createdAt': 'ASC' }
+          cascade:
+              - remove
+#      lifecycleCallbacks:
+#          prePersist: [setCreatedAtValue, setUpdatedAtValue]
+#          preUpdate: [setUpdatedAtValue]
