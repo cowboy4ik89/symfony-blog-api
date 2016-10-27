@@ -2,11 +2,6 @@ BlogBundle\Entity\User:
   type: entity
   table: bb_user
   repositoryClass: BlogBundle\Entity\EntityRepository\Doctrine\UserRepository
-  id:
-      id:
-          type: guid
-          generator:
-              strategy: AUTO
   fields:
       username:
           type: string
@@ -26,14 +21,6 @@ BlogBundle\Entity\User:
           type: string
           length: 10
           nullable: false
-      createdAt:
-          type: datetime
-          nullable: false
-          column: created_at
-      updatedAt:
-          type: datetime
-          nullable: false
-          column: updated_at
   oneToOne:
       userProfile:
           targetEntity: BlogBundle\Entity\UserProfile

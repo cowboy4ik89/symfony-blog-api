@@ -1,0 +1,16 @@
+BlogBundle\Entity\AbstractEntity:
+  type: mappedSuperclass
+  id:
+      id:
+          type: guid
+          generator:
+              strategy: AUTO
+  fields:
+      createdAt:
+          type: datetime
+          nullable: false
+          column: created_at
+      updatedAt:
+          type: datetime
+          nullable: false
+          column: updated_at

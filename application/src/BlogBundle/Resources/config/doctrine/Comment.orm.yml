@@ -2,11 +2,6 @@ BlogBundle\Entity\Comment:
   type: entity
   table: bb_comment
   repositoryClass: BlogBundle\Entity\EntityRepository\Doctrine\CommentRepository
-  id:
-      id:
-          type: guid
-          generator:
-              strategy: AUTO
   fields:
       content:
           type: string
@@ -16,14 +11,6 @@ BlogBundle\Entity\Comment:
           type: string
           nullable: false
           length: 10
-      createdAt:
-          type: datetime
-          nullable: false
-          column: created_at
-      updatedAt:
-          type: datetime
-          nullable: false
-          column: updated_at
   manyToOne:
       user:
           targetEntity: BlogBundle\Entity\User
@@ -32,6 +19,7 @@ BlogBundle\Entity\Comment:
               referencedColumnName: id
       post:
           targetEntity: BlogBundle\Entity\Post
+          inversedBy: comments
           joinColumn:
               name: user_id
               referencedColumnName: id
