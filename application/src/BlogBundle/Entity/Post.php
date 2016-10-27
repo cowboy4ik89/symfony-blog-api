@@ -2,11 +2,14 @@
 
 namespace BlogBundle\Entity;
 
-use BlogBundle\Entity\EntityInterface\BlogBundleEntityInterface;
 use BlogBundle\Event\EventInterface\NamedEventInterface;
 use Symfony\Component\EventDispatcher\Event;
 
-class Post implements BlogBundleEntityInterface
+/**
+ * Class Post
+ * @package BlogBundle\Entity
+ */
+class Post extends AbstractEntity
 {
     /**
      * @return NamedEventInterface|Event

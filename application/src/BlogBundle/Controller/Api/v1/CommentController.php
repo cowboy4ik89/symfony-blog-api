@@ -3,32 +3,58 @@
 namespace BlogBundle\Controller\Api\v1;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
+/**
+ * Class CommentController
+ * @package BlogBundle\Controller\Api\v1
+ */
 class CommentController extends Controller
 {
-    public function getAction()
+    /**
+     * @param $id
+     *
+     * @return JsonResponse
+     */
+    public function getAction($id): JsonResponßse
     {
-        return $this->render('BlogBundle:Default:index.html.twig');
+        return $this->json(['id' => $id]);
     }
 
-    public function getAll()
+    /**
+     * @return JsonResponse
+     */
+    public function getAll(): JsonResponse
     {
-        return $this->render('BlogBundle:Default:index.html.twig');
+        return $this->json([]);
     }
 
-    public function getAllSince()
+    /**
+     * @return JsonResponse
+     */
+    public function getAllSince(): JsonResponse
     {
-        return $this->render('BlogBundle:Default:index.html.twig');
+        return $this->json([]);
     }
 
-    public function create(Request $request)
+    /**
+     * @param Request $request
+     *
+     * @return JsonResponse
+     */
+    public function create(Request $request): JsonResponse
     {
-        return $this->render('BlogBundle:Default:index.html.twig');
+        return $this->json(['id' => 1]);
     }
 
-    public function update(Request $request)
+    /**
+     * @param Request $request
+     *
+     * @return JsonResponse
+     */
+    public function update(Request $request): JsonResponse
     {
-        return $this->render('BlogBundle:Default:index.html.twig');
+        return $this->json(['id' => 1]);
     }
 }

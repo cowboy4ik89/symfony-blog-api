@@ -1,9 +1,0 @@
-services:
-  blog.repository.factory:
-    class: BlogBundle\Repository\RepositoryFactory\BlogBundleRepositoryFactory
-    arguments:
-      - '@blog.doctrine.entity_manager'
-
-  blog.repository:
-    class: BlogBundle\Repository\BlogRepository
-    factory: ['@blog.repository.factory', createBlogRepository]

@@ -2,11 +2,14 @@
 
 namespace BlogBundle\Entity;
 
-use BlogBundle\Entity\EntityInterface\BlogBundleEntityInterface;
 use BlogBundle\Event\EventInterface\NamedEventInterface;
 use Symfony\Component\EventDispatcher\Event;
 
-class User implements BlogBundleEntityInterface
+/**
+ * Class User
+ * @package BlogBundle\Entity
+ */
+class User extends AbstractEntity
 {
     /**
      * @return NamedEventInterface|Event

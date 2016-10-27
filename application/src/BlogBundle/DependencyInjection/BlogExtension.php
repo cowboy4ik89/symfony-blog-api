@@ -24,9 +24,10 @@ class BlogExtension extends Extension
             new FileLocator(__DIR__.'/../Resources/config')
         );
 
-        $loader->load('di/event.listeners.yml');
-        $loader->load('di/repository.factory.yml');
-        $loader->load('di/service.entity.manager.yml');
+        $loader->load('di/event.listener.yml');
+        $loader->load('di/entity.repository.yml');
+        $loader->load('di/entity.manager.yml');
+        $loader->load('di/entity.event.manager.yml');
         $loader->load('di/service.yml');
     }
 }

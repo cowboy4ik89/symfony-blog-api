@@ -1,0 +1,3 @@
+blog.one:
+    path:     /blog/{id}
+    defaults: { _controller: BlogBundle:Api/v1/Blog:get }

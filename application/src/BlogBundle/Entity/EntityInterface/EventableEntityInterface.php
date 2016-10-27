@@ -5,9 +5,12 @@ namespace BlogBundle\Entity\EntityInterface;
 use BlogBundle\Event\EventInterface\NamedEventInterface;
 use Symfony\Component\EventDispatcher\Event;
 
+/**
+ * Interface EventableEntityInterface
+ * @package BlogBundle\Entity\EntityInterface
+ */
 interface EventableEntityInterface
 {
-
     /**
      * @return NamedEventInterface|Event
      */

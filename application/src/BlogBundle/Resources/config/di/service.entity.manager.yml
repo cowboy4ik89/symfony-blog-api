@@ -1,5 +1,0 @@
-services:
-  blog.doctrine.entity_manager:
-      class: Doctrine\ORM\EntityManager
-      factory: [@doctrine, getManager]
-      public: false

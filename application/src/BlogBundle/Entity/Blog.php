@@ -2,11 +2,14 @@
 
 namespace BlogBundle\Entity;
 
-use BlogBundle\Entity\EntityInterface\BlogBundleEntityInterface;
 use BlogBundle\Event\EventInterface\NamedEventInterface;
 use Symfony\Component\EventDispatcher\Event;
 
-class Blog implements BlogBundleEntityInterface
+/**
+ * Class Blog
+ * @package BlogBundle\Entity
+ */
+class Blog extends AbstractEntity
 {
     /**
      * @return NamedEventInterface|Event
@@ -31,5 +34,4 @@ class Blog implements BlogBundleEntityInterface
     {
         // TODO: Implement getEntityRemoveEvent() method.
     }
-
 }

@@ -1,0 +1,6 @@
+services:
+
+    blog_bundle.entity.event.manager:
+        class: BlogBundle\Entity\EntityEventManager
+        arguments:
+            - "@event_dispatcher"
