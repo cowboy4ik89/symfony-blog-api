@@ -33,6 +33,7 @@ BlogBundle\Entity\Comment:
       children:
           targetEntity: BlogBundle\Entity\Comment
           mappedBy: parent
-#      lifecycleCallbacks:
-#          prePersist: [setCreatedAtValue, setUpdatedAtValue]
-#          preUpdate: [setUpdatedAtValue]
+
+  lifecycleCallbacks:
+        prePersist: [setCreatedAtValue, setUpdatedAtValue]
+        preUpdate: [setUpdatedAtValue]

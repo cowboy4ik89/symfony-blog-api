@@ -10,9 +10,9 @@ interface BlogBundleEntityInterface extends EventableEntityInterface
 {
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getId(): string;
+    public function getId();
 
     /**
      * @return \DateTime

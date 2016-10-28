@@ -1,3 +1,7 @@
 blog.one:
     path:     /blog/{id}
     defaults: { _controller: BlogBundle:Api/v1/Blog:get }
+blog.create:
+    path:     /blog
+    defaults: { _controller: BlogBundle:Api/v1/Blog:create, _format: json }
+    methods: [POST]

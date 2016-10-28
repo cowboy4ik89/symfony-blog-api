@@ -1,1 +1,5 @@
 services:
+    blog_bundle.kernel.exception_listener:
+        class: BlogBundle\EventListener\Exception\KernelExceptionListener
+        tags:
+            - { name: kernel.event_listener, event: kernel.exception }

@@ -24,6 +24,6 @@ BlogBundle\Entity\Blog:
           orderBy: { 'createdAt': 'ASC' }
           cascade:
               - remove
-#      lifecycleCallbacks:
-#          prePersist: [setCreatedAtValue, setUpdatedAtValue]
-#          preUpdate: [setUpdatedAtValue]
+  lifecycleCallbacks:
+      prePersist: [setCreatedAtValue, setUpdatedAtValue]
+      preUpdate: [setUpdatedAtValue]

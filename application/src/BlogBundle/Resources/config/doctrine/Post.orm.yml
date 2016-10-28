@@ -32,7 +32,6 @@ BlogBundle\Entity\Post:
           mappedBy: post
           orderBy: {'createdAt': 'ASC'}
 
-
-#      lifecycleCallbacks:
-#          prePersist: [setCreatedAtValue, setUpdatedAtValue]
-#          preUpdate: [setUpdatedAtValue]
+  lifecycleCallbacks:
+      prePersist: [setCreatedAtValue, setUpdatedAtValue]
+      preUpdate: [setUpdatedAtValue]

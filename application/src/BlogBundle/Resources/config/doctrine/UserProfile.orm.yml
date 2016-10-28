@@ -21,7 +21,8 @@ BlogBundle\Entity\UserProfile:
               - persist
               - remove
 
+  lifecycleCallbacks:
+      prePersist: [setCreatedAtValue, setUpdatedAtValue]
+      preUpdate: [setUpdatedAtValue]
 
-#      lifecycleCallbacks:
-#          prePersist: [setCreatedAtValue, setUpdatedAtValue]
-#          preUpdate: [setUpdatedAtValue]
+

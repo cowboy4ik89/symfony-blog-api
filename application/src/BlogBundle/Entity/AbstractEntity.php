@@ -28,7 +28,7 @@ abstract class AbstractEntity implements BlogBundleEntityInterface
     /**
      * @return string
      */
-    public function getId(): string
+    public function getId()
     {
         return $this->id;
     }
@@ -71,5 +71,18 @@ abstract class AbstractEntity implements BlogBundleEntityInterface
         $this->updatedAt = $dateTime;
 
         return $this;
+    }
+
+
+    public function setCreatedAtValue()
+    {
+        if (!$this->createdAt) {
+            $this->createdAt = new \DateTime();
+        }
+    }
+
+    public function setUpdatedAtValue()
+    {
+        $this->updatedAt = new \DateTime();
     }
 }

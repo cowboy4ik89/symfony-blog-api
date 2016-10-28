@@ -2,9 +2,13 @@
 
 namespace BlogBundle\Controller\Api\v1;
 
+use BlogBundle\Entity\Blog;
+use BlogBundle\Form\ApiV1\BlogType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\VarDumper\VarDumper;
 
 /**
  * Class BlogController
@@ -13,27 +17,28 @@ use Symfony\Component\HttpFoundation\Request;
 class BlogController extends Controller
 {
     /**
-     * @param $id
+     * @param Blog $blog
      *
      * @return JsonResponse
      */
-    public function getAction($id): JsonResponse
+    public function getAction(Blog $blog): JsonResponse
     {
-        return $this->json(['id' => $id]);
+        return json_encode(['id' => $blog->getId()]);
     }
 
     /**
      * @return JsonResponse
      */
-    public function getAll(): JsonResponse
+    public function getAllAction(Request $request): JsonResponse
     {
-        return $this->json([]);
+
+        return $this->json($this->get('blog_bundle.blog.manager')->findAll());
     }
 
     /**
      * @return JsonResponse
      */
-    public function getAllSince(): JsonResponse
+    public function getAllSinceAction(): JsonResponse
     {
         return $this->json([]);
     }
@@ -43,9 +48,9 @@ class BlogController extends Controller
      *
      * @return JsonResponse
      */
-    public function create(Request $request): JsonResponse
+    public function createAction(Request $request): JsonResponse
     {
-        return $this->json(['id' => 1]);
+        return $this->saveBlog($request, new Blog(), Request::METHOD_POST);
     }
 
     /**
@@ -53,8 +58,23 @@ class BlogController extends Controller
      *
      * @return JsonResponse
      */
-    public function update(Request $request): JsonResponse
+    public function updateAction(Request $request, Blog $blog): JsonResponse
     {
-        return $this->json(['id' => 1]);
+        return $this->saveBlog($request, $blog, Request::METHOD_PUT);
+    }
+
+    private function saveBlog(Request $request, Blog $blog, $httpMethod)
+    {
+
+        $form = $this->createForm(BlogType::class, $blog, ['method' => $httpMethod]);
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            return $this->json(
+                $this->get('blog_bundle.blog.manager')->save($blog)
+            );
+        }
+
+        return $this->json($form->getErrors(), Response::HTTP_BAD_REQUEST);
     }
 }
