@@ -1,13 +1,12 @@
 <?php
 
-namespace BlogBundle\EventListener\Exception;
+namespace BlogBundle\Event\EventListener;
 
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\VarDumper\VarDumper;
 
 /**
  * Class KernelExceptionListener
@@ -25,7 +24,7 @@ class KernelExceptionListener
     public function onKernelException(GetResponseForExceptionEvent $event)
     {
         $exception = $event->getException();
-        VarDumper::dump($exception);
+
         switch (true) {
             case $exception instanceof HttpException:
                 $response = $this->generateHttpExceptionResponse($exception);

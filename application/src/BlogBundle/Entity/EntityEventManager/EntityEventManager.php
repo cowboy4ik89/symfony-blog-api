@@ -1,8 +1,9 @@
 <?php
 
-namespace BlogBundle\Entity;
+namespace BlogBundle\Entity\EntityEventManager;
 
-use BlogBundle\Entity\EntityInterface\EventableEntityInterface;
+use BlogBundle\Entity\EntityInterface\BlogBundleEntityInterface;
+use BlogBundle\Event\EventInterface\BlogBundleEventInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 /**
@@ -11,12 +12,20 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
  */
 class EntityEventManager
 {
+    const ENTITY_EVENT_TYPE_CREATE = 'EntityCreate';
+    const ENTITY_EVENT_TYPE_UPDATE = 'EntityUpdate';
+    const ENTITY_EVENT_TYPE_REMOVE = 'EntityRemove';
+
+    const ENTITY_EVENT_CLASS = "BlogBundle\\Event\\EntityEvent\\EntityEvent";
+
     /**
      * @var EventDispatcherInterface
      */
     private $eventDispatcher;
 
     /**
+     * EntityEventManager constructor.
+     *
      * @param EventDispatcherInterface $eventDispatcher
      */
     public function __construct(
@@ -26,35 +35,54 @@ class EntityEventManager
     }
 
     /**
-     * @param EventableEntityInterface $entity
+     * @param BlogBundleEntityInterface $entity
      */
-    public function dispatchEntityCreatedEvent(EventableEntityInterface $entity)
+    public function dispatchEntityCreatedEvent(BlogBundleEntityInterface $entity)
     {
+        $event = $this->buildEvent($entity, self::ENTITY_EVENT_TYPE_CREATE);
+
         $this->eventDispatcher->dispatch(
-            $entity->getEntityCreateEvent()->getEventName(),
-            $entity->getEntityCreateEvent()
+            $event->getEventName(),
+            $event
         );
     }
 
     /**
-     * @param EventableEntityInterface $entity
+     * @param BlogBundleEntityInterface $entity
      */
-    public function dispatchEntityUpdatedEvent(EventableEntityInterface $entity)
+    public function dispatchEntityUpdatedEvent(BlogBundleEntityInterface $entity)
     {
+        $event = $this->buildEvent($entity, self::ENTITY_EVENT_TYPE_UPDATE);
+
         $this->eventDispatcher->dispatch(
-            $entity->getEntityCreateEvent()->getEventName(),
-            $entity->getEntityCreateEvent()
+            $event->getEventName(),
+            $event
         );
     }
 
     /**
-     * @param EventableEntityInterface $entity
+     * @param BlogBundleEntityInterface $entity
      */
-    public function dispatchEntityDeletedEvent(EventableEntityInterface $entity)
+    public function dispatchEntityRemovedEvent(BlogBundleEntityInterface $entity)
     {
+        $event = $this->buildEvent($entity, self::ENTITY_EVENT_TYPE_REMOVE);
+
         $this->eventDispatcher->dispatch(
-            $entity->getEntityCreateEvent()->getEventName(),
-            $entity->getEntityCreateEvent()
+            $event->getEventName(),
+            $event
         );
+    }
+
+    /**
+     * @param BlogBundleEntityInterface $entity
+     * @param                           $eventType
+     *
+     * @return BlogBundleEventInterface
+     */
+    private function buildEvent(BlogBundleEntityInterface $entity, $eventType): BlogBundleEventInterface
+    {
+        $eventClass = self::ENTITY_EVENT_CLASS;
+
+        return new $eventClass($entity, $eventType);
     }
 }

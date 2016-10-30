@@ -6,7 +6,7 @@ namespace BlogBundle\Entity\EntityInterface;
  * Interface BlogBundleEntityInterface
  * @package BlogBundle\Entity\EntityInterface
  */
-interface BlogBundleEntityInterface extends EventableEntityInterface
+interface BlogBundleEntityInterface
 {
 
     /**

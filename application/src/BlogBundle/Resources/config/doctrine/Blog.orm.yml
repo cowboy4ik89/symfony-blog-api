@@ -2,6 +2,19 @@ BlogBundle\Entity\Blog:
   type: entity
   table: bb_blog
   repositoryClass: BlogBundle\Entity\EntityRepository\Doctrine\BlogRepository
+  entityListener:
+      BlogBundle\Event\EventListener\DoctrineEntityEventListener:
+          preFlush: [preFlushHandler]
+          postLoad: [postLoadHandler]
+
+          postPersist: [postPersistHandler]
+          prePersist: [prePersistHandler]
+
+          postUpdate: [postUpdateHandler]
+          preUpdate: [preUpdateHandler]
+
+          postRemove: [postRemoveHandler]
+          preRemove: [preRemoveHandler]
   fields:
       name:
           type: string

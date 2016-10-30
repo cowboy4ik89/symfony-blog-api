@@ -1,5 +1,18 @@
 BlogBundle\Entity\AbstractEntity:
   type: mappedSuperclass
+#  entityListener:
+#    BlogBundle\Event\EventListener\DoctrineEventListener\DoctrineEntityEventListener:
+#      preFlush: [preFlushHandler]
+#      postLoad: [postLoadHandler]
+#
+#      postPersist: [postPersistHandler]
+#      prePersist: [prePersistHandler]
+#
+#      postUpdate: [postUpdateHandler]
+#      preUpdate: [preUpdateHandler]
+#
+#      postRemove: [postRemoveHandler]
+#      preRemove: [preRemoveHandler]
   id:
       id:
           type: guid

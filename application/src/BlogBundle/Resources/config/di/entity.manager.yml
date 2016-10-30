@@ -4,28 +4,23 @@ services:
         class: BlogBundle\Entity\EntityManager\BlogManager
         arguments:
           - "@blog_bundle.blog.doctrine.repository"
-          - "@blog_bundle.entity.event.manager"
 
     blog_bundle.comment.manager:
         class: BlogBundle\Entity\EntityManager\CommentManager
         arguments:
           - "@blog_bundle.comment.doctrine.repository"
-          - "@blog_bundle.entity.event.manager"
 
     blog_bundle.post.manager:
         class: BlogBundle\Entity\EntityManager\PostManager
         arguments:
           - "@blog_bundle.post.doctrine.repository"
-          - "@blog_bundle.entity.event.manager"
 
     blog_bundle.user.manager:
         class: BlogBundle\Entity\EntityManager\UserManager
         arguments:
           - "@blog_bundle.user.doctrine.repository"
-          - "@blog_bundle.entity.event.manager"
 
     blog_bundle.user.profile.manager:
         class: BlogBundle\Entity\EntityManager\UserProfileManager
         arguments:
           - "@blog_bundle.user.profile.doctrine.repository"
-          - "@blog_bundle.entity.event.manager"

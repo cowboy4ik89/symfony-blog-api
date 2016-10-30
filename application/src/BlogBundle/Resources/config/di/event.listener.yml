@@ -1,5 +1,19 @@
 services:
     blog_bundle.kernel.exception_listener:
-        class: BlogBundle\EventListener\Exception\KernelExceptionListener
+        class: BlogBundle\Event\EventListener\KernelExceptionListener
         tags:
             - { name: kernel.event_listener, event: kernel.exception }
+
+    blog_bundle.event.listener.doctrine.entity.event.listener:
+        class: BlogBundle\Event\EventListener\DoctrineEntityEventListener
+        arguments:
+            - "@blog_bundle.entity.event.manager"
+        tags:
+            - { name: doctrine.event_listener, event: prePersist, method: prePersist }
+            - { name: doctrine.event_listener, event: postPersist, method: postPersist }
+            - { name: doctrine.event_listener, event: preUpdate, method: preUpdate }
+            - { name: doctrine.event_listener, event: postUpdate, method: postUpdate }
+            - { name: doctrine.event_listener, event: postRemove, method: postRemove }
+            - { name: doctrine.event_listener, event: preRemove, method: preRemove }
+            - { name: doctrine.event_listener, event: preFlush, method: preFlush }
+            - { name: doctrine.event_listener, event: postLoad, method: postLoad }

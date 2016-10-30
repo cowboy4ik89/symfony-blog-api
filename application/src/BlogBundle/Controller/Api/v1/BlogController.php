@@ -8,7 +8,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\VarDumper\VarDumper;
 
 /**
  * Class BlogController
@@ -63,6 +62,13 @@ class BlogController extends Controller
         return $this->saveBlog($request, $blog, Request::METHOD_PUT);
     }
 
+    /**
+     * @param Request $request
+     * @param Blog    $blog
+     * @param         $httpMethod
+     *
+     * @return JsonResponse
+     */
     private function saveBlog(Request $request, Blog $blog, $httpMethod)
     {
 

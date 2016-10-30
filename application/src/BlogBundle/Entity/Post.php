@@ -2,13 +2,8 @@
 
 namespace BlogBundle\Entity;
 
-use BlogBundle\Entity\Blog;
-use BlogBundle\Entity\Comment;
-use BlogBundle\Entity\User;
-use BlogBundle\Event\EventInterface\NamedEventInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Symfony\Component\EventDispatcher\Event;
 
 /**
  * Class Post
@@ -206,29 +201,5 @@ class Post extends AbstractEntity
     public function getBlog()
     {
         return $this->blog;
-    }
-
-    /**
-     * @return NamedEventInterface|Event
-     */
-    public function getEntityCreateEvent()
-    {
-        // TODO: Implement getEntityCreateEvent() method.
-    }
-
-    /**
-     * @return NamedEventInterface|Event
-     */
-    public function getEntityUpdateEvent()
-    {
-        // TODO: Implement getEntityUpdateEvent() method.
-    }
-
-    /**
-     * @return NamedEventInterface|Event
-     */
-    public function getEntityRemoveEvent()
-    {
-        // TODO: Implement getEntityRemoveEvent() method.
     }
 }
