@@ -4,6 +4,7 @@ namespace BlogBundle\EntityManagement\EntityManager;
 
 use BlogBundle\Entity\EntityInterface\BlogBundleEntityInterface;
 use BlogBundle\EntityManagement\EntityRepository\RepositoryInterface;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 
 /**
  * Class AbstractEntityManager
@@ -107,7 +108,7 @@ abstract class AbstractEntityManager
      * @param int $firstResult
      * @param int $lastResult
      *
-     * @return mixed
+     * @return Paginator
      */
     public function findAllPaginated(int $firstResult, int $lastResult)
     {
