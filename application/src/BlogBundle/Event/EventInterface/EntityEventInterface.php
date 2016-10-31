@@ -10,6 +10,13 @@ use BlogBundle\Entity\EntityInterface\BlogBundleEntityInterface;
  */
 interface EntityEventInterface extends BlogBundleEventInterface
 {
+    /**
+     * EntityEventInterface constructor.
+     *
+     * @param BlogBundleEntityInterface $entity
+     * @param string                    $eventType
+     * @param string                    $eventName
+     */
     public function __construct(
         BlogBundleEntityInterface $entity,
         string $eventType,

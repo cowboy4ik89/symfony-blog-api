@@ -41,6 +41,6 @@ class EntityEventBuilder
         $eventClass = self::ENTITY_EVENT_CLASS;
         $eventName = $this->entityEventNameBuilder->buildEntityEventName($entity, $eventType);
 
-        return new $eventClass($entity, strtolower($eventType), $eventName);
+        return new $eventClass($entity, $eventType, $eventName);
     }
 }

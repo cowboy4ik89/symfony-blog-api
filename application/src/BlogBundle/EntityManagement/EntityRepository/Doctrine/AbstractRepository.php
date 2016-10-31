@@ -21,7 +21,7 @@ class AbstractRepository extends EntityRepository implements RepositoryInterface
     public function save(BlogBundleEntityInterface $entity): BlogBundleEntityInterface
     {
         $this->getEntityManager()->persist($entity);
-//        $this->getEntityManager()->flush();
+        $this->getEntityManager()->flush();
 
         return $entity;
     }
@@ -34,6 +34,6 @@ class AbstractRepository extends EntityRepository implements RepositoryInterface
     public function remove(BlogBundleEntityInterface $entity): BlogBundleEntityInterface
     {
         $this->getEntityManager()->remove($entity);
-//        $this->getEntityManager()->flush();
+        $this->getEntityManager()->flush();
     }
 }

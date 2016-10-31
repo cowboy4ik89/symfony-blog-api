@@ -3,34 +3,24 @@ services:
     blog_bundle.event.listener.entity.create.blog:
         class: BlogBundle\EventListener\EntityListener\Create\BlogEntityCreateEventListener
         tags:
-            - name: blog_bundle.event.entity_create.blog.listener,
-              event: blog_bundle.event.entity_create.blog,
-              method: onEntityCreate
+            - { name:  kernel.event_listener, event: blog_bundle.event.entity_create.blog, method: onEntityCreate }
 
     blog_bundle.event.listener.entity.create.comment:
         class: BlogBundle\EventListener\EntityListener\Create\CommentEntityCreateEventListener
         tags:
-            - name: blog_bundle.event.entity_create.comment.listener,
-              event: blog_bundle.event.entity_create.comment,
-              method: onEntityCreate
+            - { name:  kernel.event_listener, event: blog_bundle.event.entity_create.comment, method: onEntityCreate }
 
     blog_bundle.event.listener.entity.create.post:
         class: BlogBundle\EventListener\EntityListener\Create\PostEntityCreateEventListener
         tags:
-            - name: blog_bundle.event.entity_create.post.listener,
-              event: blog_bundle.event.entity_create.post,
-              method: onEntityCreate
+            - { name:  kernel.event_listener, event: blog_bundle.event.entity_create.post, method: onEntityCreate }
 
     blog_bundle.event.listener.entity.create.user:
         class: BlogBundle\EventListener\EntityListener\Create\UserEntityCreateEventListener
         tags:
-            - name: blog_bundle.event.entity_create.user.listener,
-              event: blog_bundle.event.entity_create.user,
-              method: onEntityCreate
+            - { name:  kernel.event_listener, event: blog_bundle.event.entity_create.user, method: onEntityCreate }
 
     blog_bundle.event.listener.entity.create.user.profile:
         class: BlogBundle\EventListener\EntityListener\Create\UserProfileEntityCreateEventListener
         tags:
-            - name: blog_bundle.event.entity_create.user.profile.listener,
-              event: blog_bundle.event.entity_create.userprofile,
-              method: onEntityCreate
+            - { name:  kernel.event_listener, event: blog_bundle.event.entity_create.userprofile, method: onEntityCreate }

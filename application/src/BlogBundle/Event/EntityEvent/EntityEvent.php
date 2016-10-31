@@ -4,12 +4,13 @@ namespace BlogBundle\Event\EntityEvent;
 
 use BlogBundle\Entity\EntityInterface\BlogBundleEntityInterface;
 use BlogBundle\Event\AbstractEvent;
+use BlogBundle\Event\EventInterface\EntityEventInterface;
 
 /**
  * Class BlogEntityCreate
  * @package BlogBundle\Event\EntityCreate
  */
-class EntityEvent extends AbstractEvent
+class EntityEvent extends AbstractEvent implements EntityEventInterface
 {
     /**
      * @var BlogBundleEntityInterface
