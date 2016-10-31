@@ -4,7 +4,6 @@ namespace BlogBundle\EntityManagement\EntityManager;
 
 use BlogBundle\Entity\EntityInterface\BlogBundleEntityInterface;
 use BlogBundle\EntityManagement\EntityRepository\RepositoryInterface;
-use Doctrine\ORM\EntityRepository;
 
 /**
  * Class AbstractEntityManager
@@ -13,7 +12,7 @@ use Doctrine\ORM\EntityRepository;
 abstract class AbstractEntityManager
 {
     /**
-     * @var EntityRepository
+     * @var RepositoryInterface
      */
     private $doctrineRepository;
 
@@ -102,6 +101,17 @@ abstract class AbstractEntityManager
     public function findOneBy(array $criteria)
     {
         return $this->doctrineRepository->findOneBy($criteria);
+    }
+
+    /**
+     * @param int $firstResult
+     * @param int $lastResult
+     *
+     * @return mixed
+     */
+    public function findAllPaginated(int $firstResult, int $lastResult)
+    {
+        return $this->doctrineRepository->findAllPaginated($firstResult, $lastResult);
     }
 
 }
