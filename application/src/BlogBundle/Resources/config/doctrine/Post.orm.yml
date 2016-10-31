@@ -1,7 +1,7 @@
 BlogBundle\Entity\Post:
   type: entity
   table: bb_post
-  repositoryClass: BlogBundle\Entity\EntityRepository\Doctrine\PostRepository
+  repositoryClass: BlogBundle\EntityManagement\EntityRepository\Doctrine\PostRepository
   fields:
       name:
           type: string

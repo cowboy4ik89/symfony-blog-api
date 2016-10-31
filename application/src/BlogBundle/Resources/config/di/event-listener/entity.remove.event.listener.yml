@@ -1,0 +1,39 @@
+services:
+
+    blog_bundle.event.listener.entity.remove.blog:
+        class: BlogBundle\EventListener\EntityListener\Remove\BlogEntityRemoveEventListener
+        tags:
+            - name: blog_bundle.event.entity_remove.blog.listener,
+              event: blog_bundle.event.entity_remove.blog,
+              method: onEntityRemove
+              
+    blog_bundle.event.listener.entity.remove.comment:
+        class: BlogBundle\EventListener\EntityListener\Remove\CommentEntityRemoveEventListener
+        tags:
+            - name: blog_bundle.event.entity_remove.comment.listener,
+              event: blog_bundle.event.entity_remove.comment,
+              method: onEntityRemove
+             
+
+    blog_bundle.event.listener.entity.remove.post:
+        class: BlogBundle\EventListener\EntityListener\Remove\PostEntityRemoveEventListener
+        tags:
+            - name: blog_bundle.event.entity_remove.post.listener,
+              event: blog_bundle.event.entity_remove.post,
+              method: onEntityRemove
+             
+
+    blog_bundle.event.listener.entity.remove.user:
+        class: BlogBundle\EventListener\EntityListener\Remove\UserEntityRemoveEventListener
+        tags:
+            - name: blog_bundle.event.entity_remove.user.listener,
+              event: blog_bundle.event.entity_remove.user,
+              method: onEntityRemove
+             
+    blog_bundle.event.listener.entity.remove.user.profile:
+        class: BlogBundle\EventListener\EntityListener\Remove\UserProfileEntityRemoveEventListener
+        tags:
+            - name: blog_bundle.event.entity_remove.user.profile.listener,
+              event: blog_bundle.event.entity_remove.userprofile,
+              method: onEntityRemove
+             

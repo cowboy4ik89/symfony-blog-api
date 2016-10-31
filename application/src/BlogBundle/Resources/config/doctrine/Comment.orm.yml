@@ -1,7 +1,7 @@
 BlogBundle\Entity\Comment:
   type: entity
   table: bb_comment
-  repositoryClass: BlogBundle\Entity\EntityRepository\Doctrine\CommentRepository
+  repositoryClass: BlogBundle\EntityManagement\EntityRepository\Doctrine\CommentRepository
   fields:
       content:
           type: string

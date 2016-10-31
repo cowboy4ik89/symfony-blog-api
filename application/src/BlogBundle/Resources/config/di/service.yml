@@ -1,1 +1,4 @@
 services:
+
+    blog_bundle.service.string.formatter:
+      class: BlogBundle\Service\StringFormatter

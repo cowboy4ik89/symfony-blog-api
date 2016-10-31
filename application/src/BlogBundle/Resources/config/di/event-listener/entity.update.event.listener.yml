@@ -1,0 +1,40 @@
+services:
+
+    blog_bundle.event.listener.entity.update.blog:
+        class: BlogBundle\EventListener\EntityListener\Update\BlogEntityUpdateEventListener
+        tags:
+            - name: blog_bundle.event.entity_update.blog.listener,
+              event: blog_bundle.event.entity_update.blog,
+              method: onEntityUpdate
+             
+
+    blog_bundle.event.listener.entity.update.comment:
+        class: BlogBundle\EventListener\EntityListener\Update\CommentEntityUpdateEventListener
+        tags:
+            - name: blog_bundle.event.entity_update.comment.listener,
+              event: blog_bundle.event.entity_update.comment,
+              method: onEntityUpdate
+             
+
+    blog_bundle.event.listener.entity.update.post:
+        class: BlogBundle\EventListener\EntityListener\Update\PostEntityUpdateEventListener
+        tags:
+            - name: blog_bundle.event.entity_update.post.listener,
+              event: blog_bundle.event.entity_update.post,
+              method: onEntityUpdate
+             
+
+    blog_bundle.event.listener.entity.update.user:
+        class: BlogBundle\EventListener\EntityListener\Update\UserEntityUpdateEventListener
+        tags:
+            - name: blog_bundle.event.entity_update.user.listener,
+              event: blog_bundle.event.entity_update.user,
+              method: onEntityUpdate
+             
+    blog_bundle.event.listener.entity.update.user.profile:
+        class: BlogBundle\EventListener\EntityListener\Update\UserProfileEntityUpdateEventListener
+        tags:
+            - name: blog_bundle.event.entity_update.user.profile.listener,
+              event: blog_bundle.event.entity_update.userprofile,
+              method: onEntityUpdate
+             

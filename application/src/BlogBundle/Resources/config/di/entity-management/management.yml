@@ -1,0 +1,17 @@
+services:
+
+    blog_bundle.entity.event.name.builder:
+        class: BlogBundle\EntityManagement\EntityEventNameBuilder
+        arguments:
+            - "@blog_bundle.service.string.formatter"
+
+    blog_bundle.entity.event.builder:
+        class: BlogBundle\EntityManagement\EntityEventBuilder
+        arguments:
+            - "@blog_bundle.entity.event.name.builder"
+
+    blog_bundle.entity.event.manager:
+        class: BlogBundle\EntityManagement\EntityEventManager
+        arguments:
+            - "@event_dispatcher"
+            - "@blog_bundle.entity.event.builder"

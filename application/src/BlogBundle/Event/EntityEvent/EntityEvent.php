@@ -21,17 +21,27 @@ class EntityEvent extends AbstractEvent
      */
     private $eventType;
 
+    /**
+     * @var string
+     */
+    private $eventName;
+
 
     /**
      * EntityEvent constructor.
      *
      * @param BlogBundleEntityInterface $entity
-     * @param                           $eventType
+     * @param string                    $eventType
+     * @param string                    $eventName
      */
-    public function __construct(BlogBundleEntityInterface $entity, $eventType)
-    {
+    public function __construct(
+        BlogBundleEntityInterface $entity,
+        string $eventType,
+        string $eventName
+    ) {
         $this->entity = $entity;
         $this->eventType = $eventType;
+        $this->eventName = $eventName;
     }
 
     /**
@@ -57,19 +67,7 @@ class EntityEvent extends AbstractEvent
      */
     public function getEventName(): string
     {
-        $eventType = $this->toUnderscoreFormat($this->getEventType());
-        $entityClass = get_class($this->getEntity());
 
-        return 'blog_bundle.event.' . $eventType . '.' . $entityClass;
-    }
-
-    /**
-     * @param $string
-     *
-     * @return string
-     */
-    private function toUnderscoreFormat($string): string
-    {
-        return ltrim(strtolower(preg_replace('/[A-Z]/', '_$0', $string)), '_');
+        return $this->eventName;
     }
 }

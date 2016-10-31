@@ -1,7 +1,7 @@
 BlogBundle\Entity\Blog:
   type: entity
   table: bb_blog
-  repositoryClass: BlogBundle\Entity\EntityRepository\Doctrine\BlogRepository
+  repositoryClass: BlogBundle\EntityManagement\EntityRepository\Doctrine\BlogRepository
   entityListener:
       BlogBundle\Event\EventListener\DoctrineEntityEventListener:
           preFlush: [preFlushHandler]

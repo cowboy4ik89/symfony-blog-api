@@ -1,7 +1,7 @@
 BlogBundle\Entity\UserProfile:
   type: entity
   table: bb_user_profile
-  repositoryClass: BlogBundle\Entity\EntityRepository\Doctrine\UserProfileRepository
+  repositoryClass: BlogBundle\EntityManagement\EntityRepository\Doctrine\UserProfileRepository
   fields:
       firstName:
           type: string
