@@ -2,6 +2,7 @@
 
 namespace BlogBundle\EntityManagement\EntityRepository\Doctrine;
 
+use BlogBundle\Criteria\CriteriaSubset;
 use BlogBundle\Entity\EntityInterface\BlogBundleEntityInterface;
 use BlogBundle\EntityManagement\EntityRepository\RepositoryInterface;
 use Doctrine\ORM\EntityRepository;
@@ -54,5 +55,12 @@ class AbstractRepository extends EntityRepository implements RepositoryInterface
             ->setMaxResults($lastResult);
 
         return $paginator;
+    }
+
+    public function findAllByCriteriaSubset(CriteriaSubset $criteriaSubset)
+    {
+        $qb = $this->createQueryBuilder('ar');
+
+        return $criteriaSubset->applyCriteriaSubset($qb);
     }
 }
