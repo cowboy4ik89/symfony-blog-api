@@ -2,6 +2,7 @@
 
 namespace BlogBundle\Controller\Api\v1;
 
+use BlogBundle\Criteria\CriteriaSubsetManager;
 use BlogBundle\Entity\Blog;
 use BlogBundle\Form\ApiV1\BlogType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -30,18 +31,11 @@ class BlogController extends Controller
      */
     public function getAllAction(Request $request): JsonResponse
     {
-        $from = $request->headers->get('');
-        $to = $request->headers->get('');
+        $criteriaSubsetManager = new CriteriaSubsetManager();
+        $criteriaSubset = $criteriaSubsetManager->createCriteriaSubsetFromHttpRequest($request);
+        $result = $this->get('blog_bundle.blog.manager')->findAllByCriteriaSubset($criteriaSubset);
 
-        $paginated = $this->get('blog_bundle.blog.manager')->findAllPaginated($from, $to);
-
-        $jsonResponse = $this->json($paginated);
-        $jsonResponse->headers->add('from',  $paginated->getQuery()->getFirstResult());
-        $jsonResponse->headers->add('to',  $paginated->getQuery()->getMaxResults());
-        $jsonResponse->headers->add('total',  $paginated->count());
-
-
-        return $jsonResponse;
+        return $this->json($result);
     }
 
     /**
