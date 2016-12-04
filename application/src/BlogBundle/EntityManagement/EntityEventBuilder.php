@@ -19,6 +19,8 @@ class EntityEventBuilder
     private $entityEventNameBuilder;
 
     /**
+     * @todo add event builder interface
+     *
      * EntityEventBuilder constructor.
      *
      * @param EntityEventNameBuilder $entityEventNameBuilder
